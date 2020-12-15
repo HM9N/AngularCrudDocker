@@ -1,0 +1,7 @@
+<div>
+    <ul *ngFor="let bs of business">
+      <li>
+        <a [routerLink]="['/business/edit/:id', bs]">{{ bs.business_name }}</a>
+      </li>
+    </ul>
+  </div>

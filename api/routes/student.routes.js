@@ -4,11 +4,11 @@ const studentRoutes = express.Router();
 // Require Student model in our routes module
 let Student = require("../models/Student");
 // Defined store route
-studentRoutes.route("/add").post(function (req, res) {
+studentRoutes.route("/add").post((req, res) => {
   let student = new Student(req.body);
   student
     .save()
-    .then((student) => {
+    .then(() => {
       res.status(200).json({ student: "student in added successfully" });
     })
     .catch((err) => {
@@ -16,7 +16,7 @@ studentRoutes.route("/add").post(function (req, res) {
     });
 });
 // Defined get data(index or listing) route
-studentRoutes.route("/").get(function (req, res) {
+studentRoutes.route("/").get((req, res) => {
   Student.find(function (err, studentes) {
     if (err) {
       console.log(err);
@@ -26,15 +26,15 @@ studentRoutes.route("/").get(function (req, res) {
   });
 });
 // Defined edit route
-studentRoutes.route("/edit/:id").get(function (req, res) {
+studentRoutes.route("/edit/:id").get((req, res) => {
   let id = req.params.id;
   Student.findById(id, function (err, student) {
     res.json(student);
   });
 });
 // Defined update route
-studentRoutes.route("/update/:id").post(function (req, res) {
-  Student.findById(req.params.id, function (err, next, student) {
+studentRoutes.route("/update/:id").post((req, res) => {
+  Student.findById(req.params.id, (err, student) => {
     if (!student) return next(new Error("Could not load Document"));
     else {
       student.name = req.body.name;
@@ -45,7 +45,9 @@ studentRoutes.route("/update/:id").post(function (req, res) {
       student
         .save()
         .then((student) => {
-          res.status(200).send(`El estudiante con NIT ${student.nit} ha sido modificado`);
+          res
+            .status(200)
+            .send(`El estudiante con NIT ${student.nit} ha sido modificado`);
         })
         .catch((err) => {
           res.status(400).send("unable to update the database");

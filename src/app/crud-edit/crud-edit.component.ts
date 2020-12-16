@@ -32,7 +32,7 @@ export class CrudEditComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(["/business/list"]);
+    this.router.navigate(["/business"]);
   }
 
   editBusiness(person_name, business_name, business_gst_number, id) {

@@ -19,10 +19,6 @@ let Student = new Schema(
     age: {
       type: Number,
       required: true,
-    },
-    career: {
-      type: String,
-      required: true,
     }
   },
   {

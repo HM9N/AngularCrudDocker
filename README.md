@@ -1,27 +1,62 @@
 # Angularcrud
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.1.
+#Agregar estudiante: POST
 
-## Development server
+http://localhost:4000/student/add
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Todos los campos son requeridos excepto la nota (por defecto queda con valor 0) y el nit debe ser único
+{
+    "name":"Carlos",
+    "lastName": "Duque",
+    "nit": 12345678,
+    "age": 30,
+    "note": 5
+}
 
-## Code scaffolding
+#Obtener todos los estudiantes: GET
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+http://localhost:4000/student/
 
-## Build
+#Modificar los estudiantes que sean tengan 21 o más años: POST
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+http://localhost:4000/student/update
+Se puede elegir el atributo que se desea cambiar, en este caso todos los atributus excepto el NIT, ya que éste 
+es único.
+{
+    "name":"Carolina",
+    "lastName": "Zapata",
+    "age": 20
+}
 
-## Running unit tests
+#Obtener un estudiante: GET
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+http://localhost:4000/student/:id
 
-## Running end-to-end tests
+#Promedio del curso: GET
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+http://localhost:4000/student/mean
 
-## Further help
+#Borrar estudiante: GET
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+http://localhost:4000/student/delete/:id
+
+#Modificar estudiante: POST
+
+http://localhost:4000/student/update/:id
+
+{
+    "name":"Carlos",
+    "lastName": "Duque",
+    "nit": 12345678,
+    "age": 30,
+    "note": 5
+}
+
+
+IMPORTANCIA DE LOS CONTENEDORES:
+
+El uso de contenedores facilita mucho la labor de los desarrolladores, ya que permiten empaquetar la aplicación con todas sus partes (incluyendo bibliotecas y dependencias) y así garantiza que se ejecute en otra máquina sin importar sus caracteristicas. También se puede obtener un despliegue más rápido usando estas tecnologías.
+
+
+
+

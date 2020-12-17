@@ -19,6 +19,10 @@ let Student = new Schema(
     age: {
       type: Number,
       required: true,
+    },
+    note:{
+      type: Number,
+      default: 0
     }
   },
   {
